@@ -1,36 +1,37 @@
 <template>
     <header class="header">
-        <md-menu md-size="small" md-direction="bottom-start" md-align-trigger>
-            <md-button md-menu-trigger class="md-icon-button">
-                <md-icon>person</md-icon>
-            </md-button>
+        <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+                <i class="el-icon-mobile-phone header-icon"></i>
+            </span>
+            <el-dropdown-menu>
+                <el-dropdown-item>
+                    admin
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
 
-            <md-menu-content>
-                <md-menu-item>admin</md-menu-item>
-            </md-menu-content>
-        </md-menu>
-
-        <md-button :md-ripple="true">
+        <el-button>
             <router-link to="/">🐱A🐶</router-link>
-        </md-button>
+        </el-button>
 
-        <md-menu class="header-setting-menu" md-size="small" md-direction="bottom-end" md-align-trigger>
-            <md-button md-menu-trigger class="md-icon-button">
-                <md-icon>settings</md-icon>
-            </md-button>
+        <el-dropdown trigger="click" class="header-setting-menu">
+            <span class="el-dropdown-link">
+                <i class="el-icon-setting header-icon"></i>
+            </span>
 
-            <md-menu-content class="header-setting-menu">
-                <md-menu-item class="header-setting-menu-item">
+            <el-dropdown-menu>
+                <el-dropdown-item>
                     <router-link to="/setting">My Setting</router-link>
-                </md-menu-item>
-                <md-menu-item class="header-setting-menu-item">
+                </el-dropdown-item>
+                <el-dropdown-item>
                     <router-link to="/votes">Voted Images</router-link>
-                </md-menu-item>
-                <md-menu-item class="header-setting-menu-item">
+                </el-dropdown-item>
+                <el-dropdown-item>
                     <router-link to="/favourites">Favourite Images</router-link>
-                </md-menu-item>
-            </md-menu-content>
-        </md-menu>
+                </el-dropdown-item>
+            </el-dropdown-menu>
+        </el-dropdown>
     </header>
 </template>
 
@@ -48,20 +49,9 @@
         margin-bottom: 8px;
         color: #20232a;
         font-size: 1.2em;
-
-        .md-icon-button {
-            color: rgba(0, 0, 0, 0.54);
-        }
-        &-setting-menu-item {
-            a {
-                display: inline-block;
-                width: 100%;
-                color: rgba(0, 0, 0, 0.87) !important;
-                text-decoration: none !important;
-            }
-            &:hover {
-                background-color: rgba(0, 0, 0, 0.08);
-            }
+        &-icon {
+            font-size: 1.5em;
+            cursor: pointer;
         }
     }
 </style>

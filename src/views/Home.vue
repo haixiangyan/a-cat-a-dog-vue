@@ -1,9 +1,11 @@
 <template>
     <div class="home">
+        <Header></Header>
     </div>
 </template>
 
 <script>
+  import Header from '../components/Header'
   import imagesService from '../services/images'
 
   export default {
@@ -15,6 +17,8 @@
           console.log(images)
         })
     },
-    components: {}
+    components: {
+      Header
+    }
   }
 </script>

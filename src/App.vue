@@ -19,14 +19,9 @@
             padding: 16px 8px;
             overflow: auto;
         }
-
-        a {
-            text-decoration: none;
-        }
     }
-    .ripple-left.md-button > .md-ripple {
-        display: flex;
-        text-align: left;
-        justify-content: flex-start !important;
+    a {
+        text-decoration: none;
+        color: #303133;
     }
 </style>
