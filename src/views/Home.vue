@@ -8,15 +8,17 @@
             <el-button @click="vote" class="vote-button" icon="el-icon-caret-top" circle></el-button>
             <el-button class="upload-button" size="small" icon="el-icon-upload" circle></el-button>
             <el-button @click="favourite" class="favourite-button" icon="el-icon-star-on" circle></el-button>
-            <el-button @click="isShownAnalysis = !isShownAnalysis" class="analyze-button" size="small" icon="el-icon-info" circle></el-button>
+            <el-button @click="toggleAnalysis" class="analyze-button" size="small" icon="el-icon-info" circle></el-button>
             <el-button @click="updateImage" class="next-button" icon="el-icon-refresh" circle></el-button>
         </div>
+        <Analysis v-if="isShowAnalysis" :imageAnalysis="imageAnalysis[0]"></Analysis>
     </div>
 </template>
 
 <script>
   import {mapState} from 'vuex'
   import Header from '../components/Header'
+  import Analysis from '../components/Analysis'
   // Services
   import imagesService from '../services/images'
   import favouritesService from '../services/faviourites'
@@ -28,7 +30,7 @@
       return {
         images: [{url: ''}],
         imageAnalysis: [],
-        isShownAnalysis: false
+        isShowAnalysis: false
       }
     },
     computed: {
@@ -64,10 +66,14 @@
           return
         }
         return await imagesService.analyzeImage(images[0].id)
+      },
+      toggleAnalysis() {
+        this.isShowAnalysis = !this.isShowAnalysis
       }
     },
     components: {
-      Header
+      Header,
+      Analysis
     }
   }
 </script>
