@@ -1,8 +1,8 @@
 <template>
     <div id="app">
-        <md-card class="app-wrapper">
+        <el-card class="app-wrapper">
             <router-view/>
-        </md-card>
+        </el-card>
     </div>
 </template>
 
