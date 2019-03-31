@@ -1,12 +1,16 @@
 <template>
     <div>
-        Register
+        <Header></Header>
     </div>
 </template>
 
 <script>
+  import Header from '../components/Header'
   export default {
-    name: "Register"
+    name: "Register",
+    components: {
+      Header
+    }
   }
 </script>
 
