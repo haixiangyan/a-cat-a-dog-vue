@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <md-button >Default</md-button>
   </div>
 </template>
 
