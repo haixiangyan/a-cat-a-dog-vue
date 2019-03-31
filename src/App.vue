@@ -24,4 +24,9 @@
             text-decoration: none;
         }
     }
+    .ripple-left.md-button > .md-ripple {
+        display: flex;
+        text-align: left;
+        justify-content: flex-start !important;
+    }
 </style>
