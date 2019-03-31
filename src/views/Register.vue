@@ -20,6 +20,8 @@
 </template>
 
 <script>
+  import {mapMutations} from 'vuex'
+
   export default {
     name: "Register",
     data() {
@@ -38,34 +40,42 @@
       register() {
         this.$refs.registerForm.validate((valid) => {
           if (valid) {
-            const {subId, type} = this
+            const user = this.registerForm
             // Update locally
-            localStorage.setItem('user', JSON.stringify({ subId, type }))
-
+            localStorage.setItem('user', JSON.stringify(user))
+            // Update stores
+            this.updateUser(user)
+            this.updateAxios(user.type)
+            this.$message.success('Howa')
+            // Jump to home page
+            this.$router.push('/')
           } else {
-            this.$message.error('Something wrong with registration form');
-            return false;
+            this.$message.error('Something wrong with registration form')
+            return false
           }
         })
-      }
+      },
+      ...mapMutations(["updateUser", "updateAxios"])
     }
   }
 </script>
 
 <style scoped lang="scss">
-.register {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    &-avatar {
-        display: block;
-        text-align: center;
-        width: 180px;
-        margin: 0 auto 12px;
+    .register {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &-avatar {
+            display: block;
+            text-align: center;
+            width: 180px;
+            margin: 0 auto 12px;
+        }
+
+        &-button {
+            width: 100%;
+        }
     }
-    &-button {
-        width: 100%;
-    }
-}
 </style>
