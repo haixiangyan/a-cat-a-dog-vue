@@ -5,11 +5,11 @@
             <img class="home-image" :src="images[0].url" alt="image">
         </div>
         <div class="home-actions">
-            <el-button class="vote-button" icon="el-icon-caret-top" circle></el-button>
+            <el-button @click="vote" class="vote-button" icon="el-icon-caret-top" circle></el-button>
             <el-button class="upload-button" size="small" icon="el-icon-upload" circle></el-button>
-            <el-button class="favourite-button" icon="el-icon-star-on" circle></el-button>
-            <el-button class="analyze-button" size="small" icon="el-icon-info" circle></el-button>
-            <el-button class="next-button" icon="el-icon-refresh" circle></el-button>
+            <el-button @click="favourite" class="favourite-button" icon="el-icon-star-on" circle></el-button>
+            <el-button @click="isShownAnalysis = !isShownAnalysis" class="analyze-button" size="small" icon="el-icon-info" circle></el-button>
+            <el-button @click="updateImage" class="next-button" icon="el-icon-refresh" circle></el-button>
         </div>
     </div>
 </template>
@@ -27,7 +27,8 @@
     data() {
       return {
         images: [{url: ''}],
-        imageAnalysis: []
+        imageAnalysis: [],
+        isShownAnalysis: false
       }
     },
     computed: {
@@ -49,13 +50,14 @@
           image_id: this.images[0].id,
           value: 1
         })
+        this.$message.success('Voted it')
       },
       favourite: async function () {
         await favouritesService.addFavourite({
           sub_id: this.user.subId,
           image_id: this.images[0].id
         })
-        this.$message.success('Add to favourite')
+        this.$message.success('Added to favourite')
       },
       analyze: async function (images) {
         if (images.length === 0) {
