@@ -5,13 +5,23 @@ import {catAxios, dogAxios} from "../axios"
 
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-    state: {
-        axios: catAxios
-    },
-    getters: {
+const mapper = {
+  CAT: catAxios,
+  DOG: dogAxios
+}
 
+export default new Vuex.Store({
+  state: {
+    axios: catAxios,
+    user: {}
+  },
+  getters: {},
+  mutations: {
+    updateAxios(state, type) {
+      state = mapper[type]
     },
-    mutations: {
+    updateUser(state, user) {
+      state = {...state, ...user}
     }
+  }
 })
