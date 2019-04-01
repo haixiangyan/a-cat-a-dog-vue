@@ -1,6 +1,6 @@
 <template>
     <header class="header">
-        <el-dropdown trigger="click">
+        <el-dropdown placement="bottom-start" trigger="click">
             <span class="el-dropdown-link">
                 <i class="el-icon-mobile-phone header-icon"></i>
             </span>
@@ -18,7 +18,7 @@
                 <i class="el-icon-setting header-icon"></i>
             </span>
 
-            <el-dropdown-menu>
+            <el-dropdown-menu placement="bottom-end">
                 <el-dropdown-item>
                     <router-link class="menu-link" to="/setting">My Setting</router-link>
                 </el-dropdown-item>
