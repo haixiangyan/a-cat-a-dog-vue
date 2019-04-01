@@ -12,7 +12,7 @@
         </el-dropdown>
 
         <el-button>
-            <router-link to="/">🐱A🐶</router-link>
+            <router-link class="menu-link" to="/">🐱A🐶</router-link>
         </el-button>
 
         <el-dropdown trigger="click" class="header-setting-menu">
@@ -22,13 +22,13 @@
 
             <el-dropdown-menu>
                 <el-dropdown-item>
-                    <router-link to="/setting">My Setting</router-link>
+                    <router-link class="menu-link" to="/setting">My Setting</router-link>
                 </el-dropdown-item>
                 <el-dropdown-item>
-                    <router-link to="/votes">Voted Images</router-link>
+                    <router-link class="menu-link" to="/votes">Voted Images</router-link>
                 </el-dropdown-item>
                 <el-dropdown-item>
-                    <router-link to="/favourites">Favourite Images</router-link>
+                    <router-link class="menu-link" to="/favourites">Favourite Images</router-link>
                 </el-dropdown-item>
             </el-dropdown-menu>
         </el-dropdown>

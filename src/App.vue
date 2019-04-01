@@ -41,4 +41,8 @@
         text-decoration: none;
         color: #303133;
     }
+    a.menu-link {
+        display: inline-flex;
+        width: 100%;
+    }
 </style>
