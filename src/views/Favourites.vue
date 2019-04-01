@@ -2,8 +2,8 @@
     <div class="favourites">
         <Header></Header>
         <h3>Favourite Images</h3>
-        <el-row>
-            <el-col :span="12" v-for="image in imagesWithFavourite" :key="image.id">
+        <div class="image-list">
+            <div class="image-item" :span="12" v-for="image in imagesWithFavourite" :key="image.id">
                 <el-card class="image-wrapper">
                     <img class="image" :src="image.url" alt="Image">
                     <div style="padding: 14px;">
@@ -18,8 +18,8 @@
                         </div>
                     </div>
                 </el-card>
-            </el-col>
-        </el-row>
+            </div>
+        </div>
 
         <el-dialog
             title="Removing"
@@ -100,17 +100,24 @@
             text-align: center;
         }
 
-        .image-wrapper {
-            margin-bottom: 4px;
+        .image-list {
+            column-count: 2;
+            column-gap: 0;
+            .image-item {
+                break-inside: avoid;
+                .image-wrapper {
+                    margin-bottom: 4px;
 
-            .image {
-                width: 100%;
-            }
+                    .image {
+                        width: 100%;
+                    }
 
-            .image-action {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                    .image-action {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                    }
+                }
             }
         }
     }
