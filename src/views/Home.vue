@@ -151,6 +151,7 @@
            }
            .el-button {
                transform: scale(1.2);
+               margin: 0;
            }
        }
    }
