@@ -11,9 +11,7 @@
             </el-dropdown-menu>
         </el-dropdown>
 
-        <el-button>
-            <router-link class="menu-link" to="/">🐱A🐶</router-link>
-        </el-button>
+        <el-button @click="linkHome">🐱A🐶</el-button>
 
         <el-dropdown trigger="click" class="header-setting-menu">
             <span class="el-dropdown-link">
@@ -37,7 +35,12 @@
 
 <script>
   export default {
-    name: "Header"
+    name: "Header",
+    methods: {
+      linkHome() {
+        this.$router.push('/')
+      }
+    }
   }
 </script>
 
