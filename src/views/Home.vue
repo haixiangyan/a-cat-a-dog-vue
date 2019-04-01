@@ -6,7 +6,10 @@
         </div>
         <div class="home-actions">
             <el-button @click="vote" class="vote-button" icon="el-icon-caret-top" circle></el-button>
-            <el-button class="upload-button" size="small" icon="el-icon-upload" circle></el-button>
+            <label for="new-file">
+                <input ref="newFileUpload" id="new-file" style="display: none;" accept="image/*" type="file" @change="onChangeImage">
+                <el-button @click="onClickUpload" class="upload-button" size="small" icon="el-icon-upload" circle></el-button>
+            </label>
             <el-button @click="favourite" class="favourite-button" icon="el-icon-star-on" circle></el-button>
             <el-button @click="toggleAnalysis" class="analyze-button" size="small" icon="el-icon-info" circle></el-button>
             <el-button @click="updateImage" class="next-button" icon="el-icon-refresh" circle></el-button>
@@ -69,6 +72,23 @@
       },
       toggleAnalysis() {
         this.isShowAnalysis = !this.isShowAnalysis
+      },
+      onChangeImage: async function (event) {
+        console.log(event.target.files[0])
+
+        const data = new FormData();
+        data.append('sub_id', this.user.subId);
+        data.append('file', event.target.files[0]);
+        const response= await imagesService.uploadImage(data)
+        // Error
+        if (response.status.toString().startsWith('2')) {
+          this.$message.success('Upload successfully')
+        } else {
+          this.$message.error(response.data.message)
+        }
+      },
+      onClickUpload() {
+        this.$refs.newFileUpload.click()
       }
     },
     components: {
