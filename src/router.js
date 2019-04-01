@@ -41,7 +41,7 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  if (isLogin()) {
+  if (isLogin() || to.path === '/register') {
     next()
   }
   else {
