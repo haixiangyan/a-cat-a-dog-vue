@@ -6,7 +6,7 @@ A Vue App for showing cats 🐱 and dogs 🐶.
 
 ## Screenshot
 
-![](https://i.loli.net/2019/04/01/5ca195a9b8681.png)
+![](https://i.loli.net/2019/04/01/5ca196db3abd2.png)
 
 ## How to use
 
