@@ -1,9 +1,12 @@
 <template>
     <div class="setting">
         <Header></Header>
-        <h3>Which one you prefer?</h3>
-        <el-radio :value="user.type" @change="onChangeType" label="CAT">CAT</el-radio>
-        <el-radio :value="user.type" @change="onChangeType" label="DOG">DOG</el-radio>
+        <h3>Which one would you prefer?</h3>
+        {{user.type}}
+        <section class="setting-type">
+            <el-radio class="setting-type-radio" v-model="user.type" @change="onChangeType" label="CAT">CAT</el-radio>
+            <el-radio class="setting-type-radio" v-model="user.type" @change="onChangeType" label="DOG">DOG</el-radio>
+        </section>
     </div>
 </template>
 
@@ -17,16 +20,14 @@
       ...mapState(["user"])
     },
     methods: {
-      onChangeType(event) {
-        const newUser = {
-          ...this.user,
-          type: event.target.value
-        }
+      onChangeType(type) {
+        const newUser = { type, ...this.user }
+        console.log(newUser)
         // Change localStorage
         localStorage.setItem('user', JSON.stringify(newUser))
         // Change store
         this.updateUser(newUser)
-        this.updateAxios(event.target.value)
+        this.updateAxios(type)
       },
       ...mapMutations(["updateAxios", "updateUser"])
     },
@@ -36,8 +37,20 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
     .setting {
         padding: 8px 16px;
+        h3 {
+            margin-top: 24px;
+        }
+        &-type {
+            margin-top: 12px;
+            &-radio {
+                & + & {
+                    display: flex;
+                    margin-top: 16px;
+                }
+            }
+        }
     }
 </style>

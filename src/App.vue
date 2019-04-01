@@ -6,12 +6,19 @@
     </div>
 </template>
 
+<script>
+  export default {
+    name: 'App'
+  }
+</script>
+
 <style lang="scss">
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
     }
+
     #app {
         display: flex;
         align-items: center;
@@ -23,11 +30,13 @@
             height: 680px;
             padding: 16px 8px;
             overflow: auto;
+
             .el-card__body {
                 padding: 0;
             }
         }
     }
+
     a {
         text-decoration: none;
         color: #303133;

@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import {isLogin} from "./utils/utils"
 // Pages
 import Home from './views/Home.vue'
 import Register from './views/Register'
@@ -9,7 +10,7 @@ import Favourites from './views/Favourites'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: '/',
@@ -38,3 +39,14 @@ export default new Router({
     }
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (isLogin()) {
+    next()
+  }
+  else {
+    next('/register')
+  }
+})
+
+export default router

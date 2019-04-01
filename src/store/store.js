@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import {catAxios, dogAxios} from "../axios"
+import {initUser} from "../utils/utils"
 
 Vue.use(Vuex)
 
@@ -10,18 +11,20 @@ const mapper = {
   DOG: dogAxios
 }
 
+const user = initUser()
+
 export default new Vuex.Store({
   state: {
-    axios: catAxios,
-    user: {}
+    axios: mapper[user.type],
+    user
   },
   getters: {},
   mutations: {
     updateAxios(state, type) {
-      state = mapper[type]
+      state.axios = mapper[type]
     },
     updateUser(state, user) {
-      state = {...state, ...user}
+      state.user = user
     }
   }
 })

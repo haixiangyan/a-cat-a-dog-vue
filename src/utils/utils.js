@@ -31,9 +31,33 @@ export const getEChartOptions = (imageAnalysis) => {
         }
       }
     ]
-  };
+  }
 }
 export const formatDate = (dateStr) => {
   const date = new Date(dateStr)
   return `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear() - 2000}`
+}
+
+export const isLogin = () => {
+  const userStr = localStorage.getItem('user')
+  // Not exist user info
+  if (!userStr) {
+    return false
+  }
+  const user = JSON.parse(userStr)
+  return Boolean(user.subId && user.type)
+}
+
+export function initUser() {
+  const emptyUser = {subId: '', type: 'CAT'}
+  const userStr = localStorage.getItem('user')
+  if (!userStr) {
+    return emptyUser
+  }
+  const user = JSON.parse(userStr)
+  if (!user.subId || !user.type) {
+    return emptyUser
+  }
+
+  return user
 }
