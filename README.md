@@ -31,7 +31,7 @@ $ cd a-cat-a-dog-react
 
 $ yarn install
 
-$ yarn start
+$ yarn serve
 ```
 
 ## Stacks
