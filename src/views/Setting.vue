@@ -2,7 +2,6 @@
     <div class="setting">
         <Header></Header>
         <h3>Which one would you prefer?</h3>
-        {{user.type}}
         <section class="setting-type">
             <el-radio class="setting-type-radio" v-model="user.type" @change="onChangeType" label="CAT">CAT</el-radio>
             <el-radio class="setting-type-radio" v-model="user.type" @change="onChangeType" label="DOG">DOG</el-radio>
