@@ -74,8 +74,6 @@
         this.isShowAnalysis = !this.isShowAnalysis
       },
       onChangeImage: async function (event) {
-        console.log(event.target.files[0])
-
         const data = new FormData();
         data.append('sub_id', this.user.subId);
         data.append('file', event.target.files[0]);

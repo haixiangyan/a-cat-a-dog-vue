@@ -6,7 +6,7 @@
             </span>
             <el-dropdown-menu>
                 <el-dropdown-item>
-                    admin
+                    {{user.subId}}
                 </el-dropdown-item>
             </el-dropdown-menu>
         </el-dropdown>
@@ -34,14 +34,19 @@
 </template>
 
 <script>
-  export default {
-    name: "Header",
-    methods: {
-      linkHome() {
-        this.$router.push('/')
-      }
+    import {mapState} from 'vuex'
+
+    export default {
+        name: "Header",
+        computed: {
+            ...mapState(["user"])
+        },
+        methods: {
+            linkHome() {
+                this.$router.push('/')
+            }
+        }
     }
-  }
 </script>
 
 <style scoped lang="scss">
@@ -52,6 +57,7 @@
         margin-bottom: 8px;
         color: #20232a;
         font-size: 1.2em;
+
         &-icon {
             font-size: 1.5em;
             cursor: pointer;

@@ -22,7 +22,6 @@
     methods: {
       onChangeType(type) {
         const newUser = { type, ...this.user }
-        console.log(newUser)
         // Change localStorage
         localStorage.setItem('user', JSON.stringify(newUser))
         // Change store
