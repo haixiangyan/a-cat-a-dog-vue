@@ -13,6 +13,9 @@
 </script>
 
 <style lang="scss">
+    body {
+        background: #4fc08d;
+    }
     * {
         padding: 0;
         margin: 0;
